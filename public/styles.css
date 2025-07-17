@@ -1,0 +1,175 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 2rem;
+    background: #f4f4f4;
+  }
+  h1 {
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .controls label {
+    margin-right: 0.25rem;
+    font-weight: 500;
+  }
+  .add-form {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+  }
+  .form-group label {
+    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+    color: #444;
+  }
+  input, select {
+    padding: 0.5rem;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  input[type="date"] {
+    min-width: 120px;
+  }
+  button {
+    padding: 0.5rem 1.2rem;
+    margin-left: 0.5rem;
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  button:hover {
+    background: #1565c0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  }
+  th, td {
+    padding: 0.75rem;
+    border: 1px solid #eee;
+    text-align: left;
+  }
+  th {
+    background: #f7f7f7;
+    color: #444;
+  }
+  .action-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .contact-actions button,
+  .action-btns button {
+    margin: 0;
+    margin-bottom: 0.2rem;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.97rem;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    transition: background 0.18s, box-shadow 0.18s;
+  }
+  .cancel-schedule-btn {
+    background: #ffb300;
+    color: #333;
+    border: none;
+  }
+  .cancel-schedule-btn:hover {
+    background: #ffa000;
+    color: #fff;
+  }
+  .edit-contact-btn {
+    background: #1976d2;
+    color: #fff;
+  }
+  .edit-contact-btn:hover {
+    background: #1565c0;
+  }
+  .send-btn, .edit-send-btn {
+    background: #1565c0;
+    color: #fff;
+  }
+  .send-btn:hover, .edit-send-btn:hover {
+    background: #1565c0;
+  }
+  .send-test-btn {
+    background: #00bcd4;
+    color: #fff;
+  }
+  .send-test-btn:hover {
+    background: #0097a7;
+  }
+  .delete-contact-btn {
+    background: #e53935;
+    color: #fff;
+  }
+  .delete-contact-btn:hover {
+    background: #b71c1c;
+  }
+  .contact-actions {
+    min-width: 220px;
+  }
+  .contact-scheduled {
+    font-family: monospace;
+    color: #555;
+    font-size: 0.98em;
+  }
+  .contact-template select,
+  .contact-status select {
+    min-width: 120px;
+  }
+  .template-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    flex-wrap: nowrap;
+  }
+  .template-select {
+    min-width: 130px;
+    margin-right: 0.5rem;
+  }
+  .template-btns {
+    display: flex;
+    flex-direction: column;
+    text-wrap: nowrap;
+    gap: 0.3rem;
+  }
+  @media (max-width: 900px) {
+    .add-form, .controls {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .form-group {
+      min-width: 100px;
+    }
+    .contact-actions {
+      min-width: 120px;
+    }
+  }

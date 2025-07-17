@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRM Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>📧</text></svg>">
+  </head>
+<body>
+    <div id="notificationBar" style="display:none;"></div>
+  <h1>Outreach CRM</h1>
+
+  <div class="controls">
+    <label for="statusFilter">Filter by Status:</label>
+    <select id="statusFilter">
+      <option value="">All</option>
+      <option value="Not Contacted">Not Contacted</option>
+      <option value="Contacted">First Contact</option>
+      <option value="Followed Up">Followed Up</option>
+      <option value="No longer interested">No longer interested</option>
+      <option value="Achieved">Achieved</option>
+      <option value="In Progress">In Progress</option>
+    </select>
+    <label for="dateFilter">Send Date:</label>
+    <input type="date" id="dateFilter" />
+    <button onclick="importFromCSV()">Import CSV</button>
+    <button onclick="exportToCSV()">Export CSV</button>
+    <button onclick="sendTestToSelf()">Send Test to Self</button>
+  </div>
+
+  <form class="add-form">
+    <div class="form-group">
+      <label for="newName">Name</label>
+      <input placeholder="Name" id="newName" />
+    </div>
+    <div class="form-group">
+      <label for="newEmail">Email</label>
+      <input placeholder="Email" id="newEmail" />
+    </div>
+    <div class="form-group">
+      <label for="newTemplate">Template</label>
+      <select id="newTemplate">
+        <option value="">Loading templates...</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="newNote">Note</label>
+      <input placeholder="Note" id="newNote" />
+    </div>
+    <div class="form-group">
+      <label for="newDate">Send Date</label>
+      <input type="date" id="newDate" />
+    </div>
+    <div class="form-group">
+      <label for="newTime">Send Time</label>
+      <input type="time" id="newTime" />
+    </div>
+    <button type="button" onclick="addContact()">Add</button>
+    
+  </form>
+  <a style="margin-bottom:24px;" href="logs.html">View Email Send Log</a>
+  <table id="contactsTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Template</th>
+        <th>Status</th>
+        <th>Note</th>
+        <th>Scheduled Send</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <div id="emailModal" style="display:none; position:fixed; top:10%; left:50%; transform:translateX(-50%); background:#fff; padding:20px; border:1px solid #ccc; z-index:1000;">
+    <h3>Edit Email</h3>
+    <textarea id="emailEditor" style="width:100%; height:300px;"></textarea>
+    <br>
+    <button id="sendEditedEmailBtn">Send</button>
+    <button onclick="document.getElementById('emailModal').style.display='none'">Cancel</button>
+  </div>
+  <div id="editContactModal" style="display:none; position:fixed; top:10%; left:50%; transform:translateX(-50%); background:#fff; padding:20px; border:1px solid #ccc; z-index:1000; min-width:320px;">
+    <h3>Edit Contact</h3>
+    <form id="editContactForm">
+      <div class="form-group">
+        <label for="editName">Name</label>
+        <input id="editName" name="editName" />
+      </div>
+      <div class="form-group">
+        <label for="editEmail">Email</label>
+        <input id="editEmail" name="editEmail" />
+      </div>
+      <div class="form-group">
+        <label for="editNote">Note</label>
+        <input id="editNote" name="editNote" />
+      </div>
+      <div class="form-group">
+        <label for="editDate">Send Date</label>
+        <input type="date" id="editDate" name="editDate" />
+      </div>
+      <div class="form-group">
+        <label for="editTime">Send Time</label>
+        <input type="time" id="editTime" name="editTime" />
+      </div>
+      <input type="hidden" id="editContactId" />
+      <button type="submit">Save</button>
+      <button type="button" onclick="document.getElementById('editContactModal').style.display='none'">Cancel</button>
+    </form>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
